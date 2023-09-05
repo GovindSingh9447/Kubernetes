@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: A
+  labels:
+    app: B
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      app: B
+  template:
+    metadata:
+      labels:
+        app: B
+    spec:
+      containers:
+      - name: A
+        image: name-tags
+        ports:
+        -containerPort: 8080            
